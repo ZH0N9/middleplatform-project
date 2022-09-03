@@ -14,7 +14,6 @@ export const isMobileTerminal = computed(()=>{
        navigator.userAgent
     */
    const { width } = useWindowSize();
-   console.log(width.value);
    return width.value < PC_DEVICE_WIDTH;
 });
 

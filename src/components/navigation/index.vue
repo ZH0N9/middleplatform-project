@@ -10,14 +10,15 @@
     import pcNavigation from './pc/index.vue'
     import { isMobileTerminal } from '@/utils/flexible'
     import { fetchCategory } from '@/api/category'
+    import { ALL_CATEGORY_ITEM } from '../../constants'
     const categoryData=ref([])
     const getCategoryData = async ()=>{
         const res = await fetchCategory();
         if(res){
             const {categorys} = res
             categoryData.value= categorys;
-            console.log(categoryData);
         }
+        categoryData.value.unshift(ALL_CATEGORY_ITEM)
     }
     getCategoryData();
 </script>
