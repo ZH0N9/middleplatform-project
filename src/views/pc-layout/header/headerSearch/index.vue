@@ -14,7 +14,6 @@
         console.log('search');
     }
     
-
 </script>
 
 <style lang="scss" scoped>

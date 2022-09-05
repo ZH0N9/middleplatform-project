@@ -10,13 +10,13 @@
         <div 
             class="w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 cursor-pointer ml-3"
         >
-            <theme class="ml-3"></theme>
+            <header-theme class="ml-3"></header-theme>
         </div>
 
         <div 
             class="w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 cursor-pointer ml-2"
         >
-            <user-info></user-info>
+            <header-user-info></header-user-info>
         </div>
         
     </div>
@@ -24,8 +24,8 @@
 
 <script setup>
     import headerSearch from './headerSearch/index.vue';
-    import userInfo from './userInfo/index.vue';
-    import theme from './theme/index.vue';
+    import headerUserInfo from './headerUserInfo/index.vue';
+    import headerTheme from './headerTheme/index.vue';
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
 
@@ -35,7 +35,6 @@
     const onHome = ()=>{
         router.push('/');
     }
-
 
 </script>
 
