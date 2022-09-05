@@ -17,13 +17,13 @@
           class="absolute bg-red-500 h-[20px] rounded-lg duration-200"
         ></li>
         <li
-          v-for="(item, index) in data"
+          v-for="(item, index) in category"
           :key="item.id"
-          class="shrink-0 px-1.5 py-0.5 duration-200 z-10 last:mr-3"
+          class="shrink-0 px-1.5 py-0.5 duration-200 z-10 last:mr-4"
           :class="{
             'text-white': index === currentIndex,
           }"
-          @click="handeClick(index, $event)"
+          @click="onClick(index, $event)"
           :ref="getItems"
         >
           {{ item.name }}
@@ -31,20 +31,25 @@
       </ul>
       <div
         class="fixed top-[5px] right-[-1px] z-20 h-4 px-1 pt-0.5 bg-white flex items-center shadow-l-white"
+        @click="onVisible"
       >
         <svg-icon name="hamburger" class="w-3 h-3" />
       </div>
     </div>
   </div>
-  <div>{{ listScrollLeft }}</div>
+  <popup v-model:visible="visible">
+    <menu-vue :category="category" @onClick="onClick" />
+  </popup>
 </template>
 
 <script setup>
-import SvgIcon from "../../../libs/svg-icon/index.vue";
+import menuVue from '@/views/mobile-main/components/menu/index.vue';
 import { onBeforeUpdate, onMounted, ref, watch } from "vue";
 import { useScroll } from "@vueuse/core";
+
+// list item data
 defineProps({
-  data: {
+  category: {
     type: Array,
     required: true,
   },
@@ -59,7 +64,7 @@ const currentIndex = ref(0);
 const listItems = ref([]);
 const sliderStyle = ref({
   transform: "translateX(0px)",
-  width: "50px",
+  width: "52px",
 });
 // list origin left
 let originLeft = 0;
@@ -75,25 +80,39 @@ const getItems = (item) => {
     }
   }
 };
-
 // before data updated, clear current item lists
 onBeforeUpdate(() => {
   listItems.value.length = 0;
 });
-const handeClick = (index, e) => {
+const onClick = (index, e) => {
   currentIndex.value = index;
 };
 watch(currentIndex, (newIndex) => {
   const currentItem = listItems.value[newIndex];
   // get bounding rect
   const { width, left } = currentItem.getBoundingClientRect();
-  const { left: scrollleft } = sliderTarget.value.getBoundingClientRect();
   const totalTranslateDistance = listScrollLeft.value + left - originLeft;
   sliderStyle.value = {
     transform: `translateX(${totalTranslateDistance}px)`,
     width: width + "px",
   };
+  // 点击menu item时 需要自动移动列表以显示区域外的item
+  if(visible.value){
+    console.log(left,listScrollLeft.value);
+    visible.value=false;
+    listTarget.value.scrollLeft = left+listScrollLeft.value- originLeft;
+  }
+
 });
+
+
+// show popup element
+const visible=ref(false);
+const onVisible=()=>{
+    visible.value=true;
+}
+
+
 </script>
 
 <style lang="scss" scoped></style>

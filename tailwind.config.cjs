@@ -12,7 +12,12 @@ module.exports = {
       },
       boxShadow:{
         'l-white':'-5px 0 5px white',
-        'r-white':'5px 0px 5px white'
+        'r-white':'5px 0px 5px white',
+        'around-white':'1px 1px 3px white,-1px -1px 3px white',
+        
+      },
+      height:{
+        'header':'72px'
       }
     },
   },

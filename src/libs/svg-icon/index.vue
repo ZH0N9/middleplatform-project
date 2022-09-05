@@ -16,7 +16,7 @@
             type:String,
         },
         innerClass:{
-            type:String
+            type:Object
         }
     })
     const symbolId = computed(()=>`#icon-${props.name}`)
