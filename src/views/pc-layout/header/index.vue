@@ -7,12 +7,7 @@
             <svg-icon class="w-[45px] h-[45px]" name="hello"></svg-icon>
         </div>
         <header-search class="flex-grow" />
-        <div 
-            class="w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 cursor-pointer ml-3"
-        >
-            <header-theme class="ml-3"></header-theme>
-        </div>
-
+        <header-theme class="ml-3 mr-3"></header-theme>
         <div 
             class="w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 cursor-pointer ml-2"
         >
