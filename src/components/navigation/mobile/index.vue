@@ -17,7 +17,7 @@
           class="absolute bg-red-500 h-[20px] rounded-lg duration-200"
         ></li>
         <li
-          v-for="(item, index) in category"
+          v-for="(item, index) in $store.getters.category"
           :key="item.id"
           class="shrink-0 px-1.5 py-0.5 duration-200 z-10 last:mr-4"
           :class="{
@@ -38,7 +38,7 @@
     </div>
   </div>
   <popup v-model:visible="visible">
-    <menu-vue :category="category" @onClick="onClick" />
+    <menu-vue :category="$store.getters.category" @onClick="onClick" />
   </popup>
 </template>
 
@@ -46,14 +46,10 @@
 import menuVue from '@/views/mobile-main/components/menu/index.vue';
 import { onBeforeUpdate, onMounted, ref, watch } from "vue";
 import { useScroll } from "@vueuse/core";
+import { useStore } from 'vuex';
+const store=useStore();
+const category = store.getters.category;
 
-// list item data
-defineProps({
-  category: {
-    type: Array,
-    required: true,
-  },
-});
 // slider element
 const sliderTarget = ref(null);
 // ul elememt
@@ -104,7 +100,6 @@ watch(currentIndex, (newIndex) => {
   }
 
 });
-
 
 // show popup element
 const visible=ref(false);

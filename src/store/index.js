@@ -1,0 +1,11 @@
+import { createStore } from "vuex";
+import getters from './getters'
+import category from "./modules/category.js";
+
+const store= createStore({
+    getters,
+    modules:{
+        category
+    }
+});
+export default store;

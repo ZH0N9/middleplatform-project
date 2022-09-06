@@ -1,18 +1,14 @@
 <template>
     <div class="bg-red-400 px-2.5 py-1.5 border-b border-b-zinc-200 flex items-center justify-between">
         <div 
-            class="hello-icon w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 cursor-pointer"
+            class="hello-icon w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 ml-2 cursor-pointer"
             @click="onHome"
         >
             <svg-icon class="w-[45px] h-[45px]" name="hello"></svg-icon>
         </div>
-        <header-search class="flex-grow" />
-        <header-theme class="ml-3 mr-3"></header-theme>
-        <div 
-            class="w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 cursor-pointer ml-2"
-        >
-            <header-user-info></header-user-info>
-        </div>
+        <header-search class="flex-grow z-20" />
+        <header-theme class="ml-3 mr-2 z-20"></header-theme>
+        <header-user-info class="mr-4 z-20"></header-user-info>
         
     </div>
 </template>

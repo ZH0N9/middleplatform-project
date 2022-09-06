@@ -1,7 +1,7 @@
 <template>
     <div class="h-screen flex flex-col relative">
         <pc-header class="h-header"></pc-header>
-        <pc-main class="flex-grow "></pc-main>
+        <router-view />
         <float class="fixed right-3 bottom-10"></float>
     </div>
 </template>

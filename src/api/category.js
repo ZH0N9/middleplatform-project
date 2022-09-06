@@ -1,7 +1,7 @@
-import request from '../utils/request';
+import service from '../utils/request';
 
 export const fetchCategory = (params={})=>{
-    return request({
+    return service({
         url:'/category',
         params
     })

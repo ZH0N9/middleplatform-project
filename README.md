@@ -3,7 +3,7 @@ Vue3+Vite Front End+Middle Platform Project
 
 ### Basic Structure
  ```
- ├── src
+├── src
 │   ├── App.vue // 项目根组件，一级路由出口
 │   ├── api // 接口请求
 │   ├── assets // 静态资源
@@ -30,7 +30,10 @@ Vue3+Vite Front End+Middle Platform Project
 │   ├── utils // 工具模块
 │   ├── vendor // 外部供应资源。比如：人类行为认证
 │   └── views // 页面组件。与 components 的区别在于：此处组件对应路由表，以页面的形式展示
-│       └── layout // 用于 PC 端，分割一级路由和二级路由
+│       └── pc-layout // 用于 PC 端，分割一级路由和二级路由
+│           ├── components // 该页面组件下的业务组件
+│           └── index.vue // layout 组件
+│       └── mobile-main // 用于 Mobile端，主页面
 │           ├── components // 该页面组件下的业务组件
 │           └── index.vue // layout 组件
 ├── tailwind.config.js // wailwind css 配置文件，与 src 平级

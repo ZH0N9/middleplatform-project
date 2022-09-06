@@ -1,5 +1,5 @@
 <template>
-    <popover class="h-full">
+    <popover>
         <template #controlLevel>
             <div 
                 class="w-[48.5px] h-[48.5px] flex justify-center items-center bg-white rounded-md"
@@ -8,7 +8,7 @@
             </div>
         </template>
         <template #contentLevel>
-            <ul class="flex flex-col justify-center">
+            <ul class="flex flex-col justify-center z-20">
                 <li 
                     class="flex items-center cursor-pointer rounded-md p-1.5 hover:bg-red-100 "
                     v-for="item in themeList"
