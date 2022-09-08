@@ -1,8 +1,7 @@
 <template>
-  <!--
+
   <mobile-navigation v-if="isMobileTerminal"  />
-  -->
-  <pc-navigation />
+  <pc-navigation v-else/>
 </template>
 
 <script setup>
@@ -17,15 +16,6 @@ const store = useStore();
 onMounted(()=>{
   store.dispatch('category/getCategoryData')
 })
-/*const getCategoryData = async () => {
-  const res = await fetchCategory();
-  if (res) {
-    const { categorys } = res;
-    categoryData.value = categorys;
-  }
-  categoryData.value.unshift(ALL_CATEGORY_ITEM);
-};
-getCategoryData();*/
 </script>
 
 <style lang="scss" scoped></style>

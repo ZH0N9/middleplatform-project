@@ -1,7 +1,7 @@
 export const typeEnum={
-    primary:'text-white bg-red-500 hover:bg-red-400 ',
-    main:'text-white bg-zinc-900 hover:bg-zinc-800',
-    info:'text-white bg-blue-500 hover:bg-blue-400'
+    primary:'text-white bg-red-500 hover:bg-red-400 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700',
+    main:'text-white bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700',
+    info:'text-white bg-blue-500 hover:bg-blue-400 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700'
 }
 export const iconTypeEnum={
     primary:{

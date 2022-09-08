@@ -1,7 +1,9 @@
 <template>
-    <div class="bg-red-400 px-2.5 py-1.5 border-b border-b-zinc-200 flex items-center justify-between">
+    <div class="bg-red-400 dark:bg-zinc-800  dark:border-b-zinc-700
+         px-2.5 py-1.5 border-b border-b-zinc-200 flex items-center justify-between">
         <div 
-            class="hello-icon w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 ml-2 cursor-pointer"
+            class="hello-icon w-[48.5px] h-full flex justify-center items-center bg-white rounded-md mr-3 ml-2 
+                   cursor-pointer dark:bg-zinc-800"
             @click="onHome"
         >
             <svg-icon class="w-[45px] h-[45px]" name="hello"></svg-icon>

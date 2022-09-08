@@ -1,5 +1,5 @@
 <template>
-    <navigation></navigation>
+    <navigation class="duration-500"></navigation>
     <router-view />
 </template>
 

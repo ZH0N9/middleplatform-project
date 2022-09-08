@@ -1,12 +1,12 @@
 import { fetchCategory } from "../../api/category";
-import { ALL_CATEGORY_ITEM } from "../../constants";
+import { ALL_CATEGORY_ITEM,INITIAL_CATEGORY_DATA } from "../../constants";
 
 export default {
     // independent space
     namespaced:true,
     state:()=>{
         return {
-            categories:[]
+            categories:INITIAL_CATEGORY_DATA
         }
     },
     mutations:{

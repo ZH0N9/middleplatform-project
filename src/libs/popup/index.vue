@@ -15,7 +15,7 @@
         <div
           v-if="visible"
           v-bind="$attrs"
-          class="z-40 absolute bottom-0 left-0 right-0 bg-white rounded-t-lg"
+          class="z-40 absolute bottom-0 left-0 right-0 bg-white rounded-t-lg dark:bg-zinc-800"
         >
           <slot></slot>
         </div>

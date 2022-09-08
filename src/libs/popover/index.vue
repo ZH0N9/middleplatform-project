@@ -7,7 +7,7 @@
     <transition name="popdown">
       <div
         v-if="visible"
-        class="absolute p-1 bg-white border rounded-lg m-0.5"
+        class="absolute p-1 bg-white border rounded-lg m-0.5 dark:bg-zinc-800 dark:border-zinc-700"
         :class="positionEnum[position]"
       >
         <slot name="contentLevel"></slot>

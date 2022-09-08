@@ -10,7 +10,9 @@
     <input
       class="search w-full h-[42px] block rounded-xl pl-5 text-[16px] tracking-wide 
            text-zinc-500 caret-zinc-400 outline-0 bg-zinc-100 border border-zinc-200 
-           duration-500 group-hover:bg-white group-hover:border-zinc-400 pr-[25%]"
+           duration-500 group-hover:bg-white group-hover:border-zinc-400 pr-[25%]
+           dark:bg-zinc-800 dark:text-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-900
+           dark:group-hover:border-zinc-700"
       type="text"
       placeholder="Search"
       v-model="searchInput"
@@ -53,7 +55,7 @@
         ref="popdownContainer"
         v-if="$slots.popdown&&isFocus"
         class="absolute w-full max-h-[320px] top-[54px] left-0 bg-white text-base p-2 overflow-auto rounded-lg border 
-             border-zinc-200 hover:shadow-sm duration-200"
+             border-zinc-200 hover:shadow-sm duration-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-300"
       >
         <slot name="popdown"></slot>
       </div>

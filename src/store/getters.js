@@ -1,4 +1,5 @@
 export default{
     // quick access to catogory data from store
-    category:(state)=>{console.log('d');return state.category.categories}
+    category:(state)=>{return state.category.categories},
+    theme:(state)=>{return state.theme.theme}
 }

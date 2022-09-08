@@ -1,6 +1,6 @@
 <template>
-    <div class="py-2 px-1 h-[70vh] flex flex-col  bg-red-400 rounded-t-lg">
-        <h2 class="text-xl text-white font-bold mb-1 flex items-center justify-center">
+    <div class="py-2 px-1 h-[70vh] flex flex-col  bg-red-400 rounded-t-lg dark:bg-zinc-900">
+        <h2 class="text-xl text-white font-bold mb-1 flex items-center justify-center dark:text-zinc-200">
             <svg-icon name="heart-3d" class="w-5 h-5" />
             所有分类
         </h2>
@@ -8,10 +8,10 @@
             <li 
                 v-for="(item,index) in category" 
                 :key="item.id"
-                class="text-white text-lg duration-200 mb-1  active:text-red-400 px-1"
+                class="text-white text-lg duration-200 mb-1  active:text-red-400 px-1 active:dark:text-zinc-300"
                 @click="$emit('onClick',index)"
             >
-                <div class="bg-red-300 text-center w-full h-20px p-2 rounded-lg active:bg-white">
+                <div class="bg-red-300 dark:bg-zinc-700 center w-full h-20px p-2 rounded-lg active:bg-zinc-500">
                     {{item.name}}
                 </div>
             </li>
