@@ -1,7 +1,7 @@
 <template>
-    <div class="h-screen flex flex-col relative">
-        <pc-header class="h-header"></pc-header>
-        <router-view />
+    <div class="h-screen flex flex-col overflow-auto bg-wihte dark:bg-zinc-800 duration-500 ">
+        <pc-header class="h-header duration-500"></pc-header>
+        <router-view/>
         <float class="fixed right-3 bottom-10"></float>
     </div>
 </template>

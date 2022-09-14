@@ -1,4 +1,4 @@
-import { fetchCategory } from "../../api/category";
+import { fetchCategory } from "../../api";
 import { ALL_CATEGORY_ITEM,INITIAL_CATEGORY_DATA } from "../../constants";
 
 export default {

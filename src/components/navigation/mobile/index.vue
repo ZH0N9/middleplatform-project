@@ -1,8 +1,7 @@
 <template>
-  <div class="wrapper">
-    <div class="bg-white sticky top-0 left-0 z-10 flex dark:bg-zinc-900">
+    <div class="bg-white sticky top-0 z-10 flex dark:bg-zinc-900">
       <div
-        class="fixed top-[0.5px] left-0 pl-0.5 z-20 bg-white flex items-center shadow-r-white 
+        class="absolute top-[0.5px] left-0 pl-0.5 z-20 bg-white flex items-center shadow-r-white 
               dark:bg-zinc-900 dark:shadow-r-zinc"
       >
         <svg-icon name="heart-3d" class="w-5 h-5" />
@@ -32,14 +31,13 @@
         </li>
       </ul>
       <div
-        class="fixed top-[5px] right-[-1px] z-20 h-4 px-1 pt-0.5 bg-white flex items-center shadow-l-white 
+        class="absolute  top-[5px] right-[-1px] z-20 h-4 px-1 pt-0.5 bg-white flex items-center shadow-l-white 
               dark:bg-zinc-900 dark:shadow-l-zinc"
         @click="onVisible"
       >
         <svg-icon name="hamburger" class="w-3 h-3" />
       </div>
     </div>
-  </div>
   <popup v-model:visible="visible">
     <menu-vue :category="$store.getters.category" @onClick="onClick" />
   </popup>
@@ -97,7 +95,6 @@ watch(currentIndex, (newIndex) => {
   };
   // 点击menu item时 需要自动移动列表以显示区域外的item
   if(visible.value){
-    console.log(left,listScrollLeft.value);
     visible.value=false;
     listTarget.value.scrollLeft = left+listScrollLeft.value- originLeft;
   }

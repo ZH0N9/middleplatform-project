@@ -49,7 +49,7 @@ const onMouseLeave = () => {
         timer=null;
     },100)
 };
-console.log(positionEnum.bottom);
+
 </script>
 
 <style lang="scss" scoped>

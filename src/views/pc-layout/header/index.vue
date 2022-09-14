@@ -8,9 +8,9 @@
         >
             <svg-icon class="w-[45px] h-[45px]" name="hello"></svg-icon>
         </div>
-        <header-search class="flex-grow z-20" />
-        <header-theme class="ml-3 mr-2 z-20"></header-theme>
-        <header-user-info class="mr-4 z-20"></header-user-info>
+        <header-search class="flex-grow z-50" />
+        <header-theme class="ml-3 mr-2 z-50"></header-theme>
+        <header-user-info class="mr-4 z-50"></header-user-info>
         
     </div>
 </template>
