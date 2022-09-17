@@ -14,7 +14,12 @@
                 :preload="false"
             >
                 <template v-slot="{item,width,index}">
-                    <item :data="item" :width="width" @click="onClick(item,index)"></item>
+                    <item 
+                        :data="item" 
+                        :width="width" 
+                        @click="onClick(item,index)" 
+                    >
+                    </item>
                 </template>
             </water-fall>
         </long-list>
@@ -24,7 +29,7 @@
   <script setup>
     import { onMounted,ref } from 'vue';
     import { fetchPexel } from '../../api';
-    import { isMobileTerminal } from '../../utils/flexible';
+    import { isMobileTerminal } from '@/utils/flexible';
     import item from './item/index.vue'
     const pexelList = ref([])
     // default query params
@@ -45,10 +50,8 @@
         if(res){
             if(query.value.page===1){
                 pexelList.value=res.list;
-                console.log('first list',pexelList);
             }else{
                 pexelList.value.push(...res.list);
-                console.log('list',pexelList);
             }
 
             if(pexelList.value.length===res.total){
@@ -58,7 +61,6 @@
             query.value.page+=1;
         }
     }
-    console.log(query.value);  
     const onClick=(item,index)=>{
         console.log(item,index)
     }

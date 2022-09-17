@@ -1,8 +1,13 @@
 <template>
     <div class="bg-white dark:bg-zinc-800 p-1 rounded-lg duration-500">
         <!--img part + mask -->
-        <div class="group relative cursor-zoom-in duration-200">
+        <div class="group relative rounded-lg cursor-zoom-in duration-200" 
+             :style="{
+                        backgroundColor:generateRandomColor()
+                    }"
+        >
             <img 
+                v-lazy
                 class="rounded-lg bg-transparent w-full" 
                 :src="data.photo" 
                 :style="{height:(width/data.photoWidth)*data.photoHeight+'px'}" 
@@ -25,7 +30,7 @@
         <p class="text-sm text-zinc-800 font-bold dark:text-zinc-300 px-1 mt-1">{{data.title}}</p>
         <!--author part-->
         <div class="flex items-center mt-1 px-1">
-            <img class="w-2 h-2 rounded-full" :src="data.avatar" alt=""/>
+            <img  v-lazy class="w-2 h-2 rounded-full" :src="data.avatar" alt=""/>
             <p class="text-sm text-zinc-500 ml-1">{{data.author}}</p>
         </div>
 
@@ -35,6 +40,7 @@
 </template>
   
   <script setup>
+    import {generateRandomColor} from '@/utils/color'
     const props = defineProps({
         data:{
             type:Object,

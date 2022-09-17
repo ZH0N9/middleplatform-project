@@ -201,8 +201,6 @@
                 itemHeights.value.push(el.offsetHeight);
             })  
             useItemLocation()
-            console.log('itemhie',itemElements)   
-            console.log('itemheight',itemHeights.value) 
         }
     }
    
