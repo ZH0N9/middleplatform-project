@@ -9,6 +9,7 @@ export const SEARCH_EVENT ='search';
 export const FOUCS_EVENT = 'focus';
 export const BLUR_EVENT = 'blur';
 export const CLEAR_EVENT = 'clear';
+export const ITEM_CLICK_EVENT = 'itemClick';
 
 // themes
 export const THEME_DARK = 'dark'

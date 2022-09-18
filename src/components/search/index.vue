@@ -67,21 +67,29 @@
 import { ref } from "vue";
 import { onClickOutside } from "@vueuse/core";
 import { CLEAR_EVENT, FOUCS_EVENT, SEARCH_EVENT } from "../../constants";
+
+const props=defineProps({
+  searchInput:{
+    type:String,
+    required:true
+  }
+})
 // emit events
-const emits = defineEmits([SEARCH_EVENT,FOUCS_EVENT,CLEAR_EVENT]);
-const searchInput=ref("");
+const emits = defineEmits([SEARCH_EVENT,FOUCS_EVENT,CLEAR_EVENT,'update:searchInput']);
+//const searchInput=ref("");
 const containerTarget =ref(null);
 // input focused or not
 const isFocus =ref(false);
 
 // clear all input content
 const onClear=()=>{
-    searchInput.value='';
     emits(CLEAR_EVENT,'');
 }
 // update search input content when input
 const onInput=(e)=>{
-    searchInput.value=e.target.value;
+   // searchInput.value=e.target.value;
+   emits('update:searchInput',e.target.value);
+    
 }
 // update focus state when input focused
 const onFocus = ()=>{

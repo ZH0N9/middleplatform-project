@@ -27,10 +27,14 @@
 </template>
   
   <script setup>
-    import { onMounted,ref } from 'vue';
+    import { onMounted,ref,watch } from 'vue';
     import { fetchPexel } from '../../api';
+    import { useStore } from 'vuex';
     import { isMobileTerminal } from '@/utils/flexible';
     import item from './item/index.vue'
+import currCategory from '../../store/modules/currCategory';
+
+    const store = useStore();
     const pexelList = ref([])
     // default query params
     const query = ref({
@@ -39,6 +43,13 @@
     })
     const loading=ref(false);
     const finished=ref(false);
+
+    const resetQuery = (newQuery)=>{
+        query.value = {...query.value,...newQuery};
+        //reset data
+        pexelList.value=[];
+        finished.value = false;
+    }
     const getPexelData = async ()=>{
         // no data needed be requested
         if(finished.value){
@@ -46,7 +57,7 @@
             return
         }
 
-        const res = await fetchPexel(query);
+        const res = await fetchPexel(query.value);
         if(res){
             if(query.value.page===1){
                 pexelList.value=res.list;
@@ -64,6 +75,17 @@
     const onClick=(item,index)=>{
         console.log(item,index)
     }
+
+    watch(
+        ()=>store.getters.currentCategory,
+        (currCategory)=>{
+            resetQuery({
+                page:1,
+                categoryId:currCategory.id
+            })
+        }
+
+    )
   </script>
   
   <style lang="scss" scoped>

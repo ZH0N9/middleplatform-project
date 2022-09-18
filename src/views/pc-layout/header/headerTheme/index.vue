@@ -52,8 +52,7 @@ const themeName = computed(()=>{
     const currentTheme = themeList.find((theme)=>{
         return theme.id===store.getters.theme
     })
-    console.log(currentTheme)
-    return currentTheme.icon;
+    return currentTheme?.icon || 'theme-light';
 });
 
 const store=useStore()  

@@ -22,7 +22,7 @@
         </template>
 
         <!--loading-->
-        <div v-else class="w-full flex justify-center">
+        <div v-if="loading&&!data.length&&colWidth===0" class="w-full flex justify-center">
             <svg-icon name="loading" class="w-5 h-5 animate-spin" color="#ff0000" :innerClass="{'dark:fill-zinc-300':true}"/>
         </div>
     </div>
@@ -61,6 +61,10 @@
         preload:{
             type:Boolean,
             default:true
+        },
+        loading:{
+            type:Boolean,
+            default:false
         }
     })
     const screenWidth = ref(0);

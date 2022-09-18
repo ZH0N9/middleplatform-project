@@ -4,6 +4,7 @@ import service from '../utils/request';
 export const fetchCategory = (params={})=>{
     return service({
         url:'/category',
+        method:'get',
         params
     })
 }
@@ -12,6 +13,16 @@ export const fetchCategory = (params={})=>{
 export const fetchPexel = (params={})=>{
     return service({
         url:'pexels/list',
+        method:'get',
+        params
+    })
+}
+
+//fetch search hint
+export const fetchSearchHint = (params={})=>{
+    return service({
+        url:'/pexels/hint',
+        method:'get',
         params
     })
 }

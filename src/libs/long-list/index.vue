@@ -11,8 +11,8 @@
             />
 
             <div class="w-full" v-if="finished">
-                <p class="w-full h-1 bg-zinc-500"></p>
-                <p class="text-center py-1 text-base text-zinc-500">No More Data</p>
+                <p class="w-full h-[1px] bg-zinc-200"></p>
+                <p class="text-center py-2 text-base text-zinc-500">END</p>
             </div>
         </div>
 
@@ -45,7 +45,6 @@
         }
     }
     useIntersectionObserver(loadingTarget,([{isIntersecting}],observerElement)=>{
-        console.log('new loading');
         // current loading part is in the view 
         isIntersect.value = isIntersecting;
         emitLoad();

@@ -1,8 +1,14 @@
 <template>
     <div class="h-full">
-        <search @search="onSearch" >
+        <search v-model:searchInput="searchInput" @search="onSearch" @clear="onClear" >
             <template #popdown>
-                dd
+                <!--Search hint part-->
+                <hint 
+                    v-show="searchInput!==''"
+                    :searchHint="searchInput"
+                    @itemClick="onSearch"
+                />
+                
             </template>
         </search>
     </div>
@@ -10,8 +16,19 @@
 
 <script setup>
     import search from '@/components/search/index.vue'
-    const onSearch=()=>{
-        console.log('search');
+    import hint from './hint/index.vue'
+    import { ref } from 'vue';
+    const searchInput=ref('');
+
+    const onClear=()=>{
+        searchInput.value='';
+    }
+
+    const onSearch=(searchText)=>{
+        if(searchText){
+            searchInput.value=searchText;
+        }
+        console.log(searchText);
     }
     
 </script>

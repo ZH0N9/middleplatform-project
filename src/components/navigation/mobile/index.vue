@@ -24,7 +24,7 @@
           :class="{
             'text-white': index === currentIndex,
           }"
-          @click="onClick(index, $event)"
+          @click="onClick(item,index)"
           :ref="getItems"
         >
           {{ item.name }}
@@ -81,8 +81,13 @@ const getItems = (item) => {
 onBeforeUpdate(() => {
   listItems.value.length = 0;
 });
-const onClick = (index, e) => {
+const onClick = (item,index) => {
   currentIndex.value = index;
+  console.log(item);
+  store.commit('currCategory/setCurrentCategory',item)
+  setTimeout(()=>{
+    console.log(store.getters.currentCategoryIndex);
+  },100)
 };
 watch(currentIndex, (newIndex) => {
   const currentItem = listItems.value[newIndex];

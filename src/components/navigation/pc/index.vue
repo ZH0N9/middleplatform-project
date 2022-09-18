@@ -4,7 +4,6 @@
         class="w-[720px] relative mx-auto flex text-[12px] text-red-500 items-start dark:text-zinc-500
                 font-medium flex-wrap justify-center px-2 overflow-hidden duration-300"
         :class="show?'h-[98px]':'h-[28px]'"
-        ref="listTarget"
     >
         <!--sparrow-->
         <div 
@@ -20,7 +19,7 @@
         class="shrink-0 px-1 py-0.5 duration-200 z-10 text-[14px] rounded-lg dark:text-zinc-500
                 last:mr-4 cursor-pointer hover:bg-red-500 hover:text-white  dark:hover:bg-zinc-900"
         :class="{'bg-red-500':currentIndex===index,'text-white':currentIndex===index,'dark:bg-zinc-900':currentIndex===index}"
-        @click="onClick(index)"
+        @click="onClick(item,index)"
         >
             {{ item.name }}
         </li>
@@ -31,9 +30,15 @@
 
 <script setup>
     import { ref } from 'vue';
+    import { useStore } from 'vuex';
+import store from '../../../store';
+
+    const sotre = useStore();
     const currentIndex=ref(0);
-    const onClick=(index)=>{
+    const onClick=(item,index)=>{
         currentIndex.value=index;
+        console.log(item);
+        store.commit('currCategory/setCurrentCategory',item)
     }
     const show = ref(false);
     const onShow=()=>{
